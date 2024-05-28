@@ -64,11 +64,7 @@ module instr_realign
                 unaligned_n = 1'b1;
             end
         end  // else -> normal fetch
-		  		  
-        if (compressed_q) begin 
-            compressed_n = 1'b0;
-        end
-		  
+	  
 	if (flush_i) begin
             // clear the unaligned and compressed instruction
 	    unaligned_n  = 1'b0;
