@@ -217,9 +217,9 @@ module datapath(input logic clk, reset,
         {InstrF_o, PCF, PCPlus4F},
         {InstrD_in, PCD, PCPlus4D});
 		  
-					  assign dec = InstrD;
+			assign dec = InstrD;
 
-		  decompress decom(InstrD_in, InstrD);
+	decompress decom(InstrD_in, InstrD);
         assign opD = InstrD[6:0];
         assign funct3D = InstrD[14:12];
         assign funct7b5D = InstrD[30];
@@ -277,23 +277,6 @@ module hazard(input logic [4:0] Rs1D, Rs2D, Rs1E, Rs2E, RdE, RdM, RdW,
     assign FlushE = lwStallD | PCSrcE;
 endmodule
 
-// module regfile(input logic clk,
-//             input logic we3,
-//             input logic [ 4:0] a1, a2, a3,
-//             input logic [31:0] wd3,
-//             output logic [31:0] rd1, rd2);
-//             logic [31:0] rf[31:0];
-// // three ported register file
-// // read two ports combinationally (A1/RD1, A2/RD2)
-// // write third port on rising edge of clock (A3/WD3/WE3)
-// // write occurs on falling edge of clock
-// // register 0 hardwired to 0
-// always_ff @(negedge clk)
-//     if (we3) rf[a3] <= wd3;
-//         assign rd1 = (a1 != 0) ? rf[a1] : 0;
-//         assign rd2 = (a2 != 0) ? rf[a2] : 0;
-// endmodule
-
 module regfile (
     input logic clk,
     input logic reset,
@@ -304,7 +287,11 @@ module regfile (
 );
     logic [31:0] rf[31:0];
     integer i;
-
+    // three ported register file
+    // read two ports combinationally (A1/RD1, A2/RD2)
+    // write third port on rising edge of clock (A3/WD3/WE3)
+    // write occurs on falling edge of clock
+    // register 0 hardwired to 0
     // Initialize registers during reset
     always_ff @(negedge clk or posedge reset) begin
         if (reset) begin
