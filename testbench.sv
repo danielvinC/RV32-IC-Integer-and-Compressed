@@ -7,9 +7,7 @@ module testbench();
 	 ,dec
 	 ;
 // instantiate device to be tested
-    rv_top dut(clk, reset, WriteData, DataAdr, MemWrite,PCstall, PCF, InstrF, ReadDataM
-	 ,dec
-	 );
+	rv_top dut(clk, reset, WriteData, DataAdr, MemWrite,PCstall, PCF, InstrF, ReadDataM, dec);
 // initialize test
     initial
         begin
