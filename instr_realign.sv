@@ -69,10 +69,10 @@ module instr_realign
             compressed_n = 1'b0;
         end
 		  
-		  if (flush_i) begin
+	if (flush_i) begin
             // clear the unaligned and compressed instruction
-          unaligned_n  = 1'b0;
-          compressed_n = 1'b0;
+	    unaligned_n  = 1'b0;
+	    compressed_n = 1'b0;
         end
 		  
     end 
