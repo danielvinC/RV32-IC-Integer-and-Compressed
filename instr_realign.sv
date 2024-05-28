@@ -18,7 +18,7 @@ module instr_realign
     // Instruction - instrF_o
     output logic [31:0] instr_o,
 	 
-	 output logic PC_Stall
+    output logic PC_Stall
 );
 
 
@@ -41,9 +41,9 @@ module instr_realign
 
         unaligned_n = unaligned_q;
 		  
-		PC_Stall = compressed_q;
+	PC_Stall = compressed_q;
 		  
-	    compressed_n = instr_is_compressed[0] && instr_is_compressed[1];
+	compressed_n = instr_is_compressed[0] && instr_is_compressed[1];
 		           
         instr_o = unaligned_q ? {data_i[15:0], unaligned_instr_q} : compressed_q ? unaligned_instr_q : data_i[31:0];
 
