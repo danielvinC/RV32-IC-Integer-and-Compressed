@@ -3,9 +3,8 @@ module riscv(   input logic clk, reset,
                 input logic [31:0] InstrF,
                 output logic MemWriteM,PCstall,
                 output logic [31:0] ALUResultM, WriteDataM,
-                input logic [31:0] ReadDataM
-					 ,output logic [31:0] dec
-					 );
+	        input logic [31:0] ReadDataM,
+	        output logic [31:0] dec);
     logic [6:0] opD;
     logic [2:0] funct3D;
     logic funct7b5D;
@@ -34,9 +33,7 @@ module riscv(   input logic clk, reset,
                 ALUSrcAE, ALUSrcBE, ZeroE,
                 MemWriteM, WriteDataM, ALUResultM, ReadDataM,
                 RegWriteW, ResultSrcW,
-                Rs1D, Rs2D, Rs1E, Rs2E, RdE, RdM, RdW
-					 ,dec
-					 );
+                Rs1D, Rs2D, Rs1E, Rs2E, RdE, RdM, RdW, dec);
 					
 
     hazard hu(Rs1D, Rs2D, Rs1E, Rs2E, RdE, RdM, RdW,
@@ -178,10 +175,8 @@ module datapath(input logic clk, reset,
                 input logic [1:0] ResultSrcW,
                 // Hazard Unit signals
                 output logic [4:0] Rs1D, Rs2D, Rs1E, Rs2E,
-                output logic [4:0] RdE, RdM, RdW
-					 
-					 ,output logic [31:0] dec
-					 );
+		output logic [4:0] RdE, RdM, RdW,
+		output logic [31:0] dec);
 
     // Fetch stage signals
         logic [31:0] PCNextF, PCPlus4F, InstrF_o;
