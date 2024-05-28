@@ -3,9 +3,7 @@ module testbench();
     logic reset;
     logic [31:0] WriteData, DataAdr;
     logic MemWrite, PCstall;
-	 logic [31:0] PCF, InstrF, ReadDataM
-	 ,dec
-	 ;
+    logic [31:0] PCF, InstrF, ReadDataM, dec;
 // instantiate device to be tested
 	rv_top dut(clk, reset, WriteData, DataAdr, MemWrite,PCstall, PCF, InstrF, ReadDataM, dec);
 // initialize test
