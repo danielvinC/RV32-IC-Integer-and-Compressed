@@ -29,7 +29,7 @@ module instr_realign
     // the previous instruction was compressed
     logic        compressed_n,        compressed_q;
 
-    // as a maximum we support a fetch width of 64-bit, hence there can be 4 compressed instructions
+    // as a maximum we support a fetch width of 32-bit, hence there can be 2 compressed instructions
     logic [1:0] instr_is_compressed;
     // LSB != 2'b11
     assign instr_is_compressed[0] = ~&data_i[0*16+:2];
