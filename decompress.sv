@@ -102,10 +102,10 @@ module decompress(
                         endcase
                     end
 						  
-						  3'b101: begin
-								// c.j   -> jal x0, imm
-								instr_o = {instr_i[12], instr_i[8], instr_i[10:9], instr_i[6], instr_i[7], instr_i[2], instr_i[11], instr_i[5:3], {9 {instr_i[12]}}, 4'b0, ~instr_i[15], 7'b11_011_11};
-						  end
+		    3'b101: begin
+			// c.j   -> jal x0, imm
+			instr_o = {instr_i[12], instr_i[8], instr_i[10:9], instr_i[6], instr_i[7], instr_i[2], instr_i[11], instr_i[5:3], {9 {instr_i[12]}}, 4'b0, ~instr_i[15], 7'b11_011_11};
+		    end
 
                     3'b110: begin
                         //c.beqz -> beq rs1', x0, imm
