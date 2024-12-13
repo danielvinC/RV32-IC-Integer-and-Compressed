@@ -43,7 +43,7 @@ module instr_realign
 		  
 	PC_Stall = compressed_q;
 		  
-	compressed_n = instr_is_compressed[0] && instr_is_compressed[1];
+	compressed_n = ( instr_is_compressed[0] | unaligned_q)  && instr_is_compressed[1];
 		           
         instr_o = unaligned_q ? {data_i[15:0], unaligned_instr_q} : compressed_q ? unaligned_instr_q : data_i[31:0];
 
